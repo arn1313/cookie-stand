@@ -2,7 +2,8 @@
   background-color: grey;
 }
 h1 {
-  font-family: 'Revalia', cursive;
   color: salmon;
+  font-size: 80px;
   background-color: beige;
+  font-family: 'Acme', sans-serif;
 }
