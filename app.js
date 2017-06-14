@@ -42,47 +42,34 @@ new Store('Capitol Hill', 20, 38, 2.3);
 Store.prototype.render = function() {
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
-  tdEl.textContent = this.location;
-  trEl.appendChild(tdEl);
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.customersEachHour;
-  trEl.appendChild(tdEl);
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.cookiesEachHour;
-  trEl.appendChild(tdEl);
+  trEl.textContent = this.storelocation;
+  for(var a = 0; a < hours.length; a++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesEachHour[a];
+    trEl.appendChild(tdEl);
+  }
+  //theTable.appendChild(trEl);
   theTable.appendChild(trEl);
-  console.log(theTable);
 };
+myHeader();
+for(var b = 0; b < allStores.length; b++) {
+  allStores[b].render();
+}
+//creating customersEachHour row
+//Cookies
 
-function myHeader(){
-  var tHead = document.getElementById('Hours');
+function myHeader() {
+  var trElv = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Location';
-  tHead.appendChild(thEl);
+  trEl.appendChild(thEl);
+  for(var c = 0; c < hours.length;c++) {
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[c];
+    trEl.appendChild(thEl);
+  }
+  theTable.appendChild(trEl);
   var thEl = document.createElement('th');
-  thEl.textContent = 'Hours';
-  tHead.appendChild(thEl);
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Total Sales';
-  tHead.appendChild(thEl);
+  thEl.textContent = 'Daily Location Total';
+  trEl.appendChild(thEl);
 }
-
-function renderallStores() {
-  for (var l = 0; l < allStores.length; l++);
-  allStores[0].render();
-}
-
-myHeader();
-renderallStores();
-//   render: function() {
-//     var ulEl = document.getElementById('locationName');
-//     console.log(ulEl);
-//     ulEl.textContent = this.location;
-//     for (var f = 0; f < hours.length; f++){
-//       var liEl = document.createElement('li');
-//       liEl.textContent = hours[f] + ' : ' + ' ' + this.cookiesEachHour[f] + ' cookies sold per hour.';
-//       console.log(liEl);
-//       ulEl.appendChild(liEl);
-//     }
-//     }
-//   },
