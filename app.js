@@ -80,18 +80,18 @@ for ( var i = 0; i < allStores.length; i++){
 
 function createUserEvent(event) {
   event.preventDefault();
-  var locationName = event.target.newStore.value;
-  var minCustNewStore = parseInt(event.target.minCust.value);
-  var maxCustNewStore = parseInt(event.target.maxCust.value);
-  var avgCookNewStore = parseInt(event.target.avgCookie.value);
-  new Store(locationName, minCustNewStore, maxCustNewStore, avgCookNewStore);
+  var loc = event.target.newStore.value;
+  var min = parseInt(event.target.minCust.value);
+  var max = parseInt(event.target.maxCust.value);
+  var avg = parseInt(event.target.avgCookie.value);
+  new Store(loc, min, max, avg);
   allStores.push();
 }
 
-var pike = new Store('Pike Place Market', 23, 65, 6.3);
-var alki = new Store('Alki', 2, 16, 4.6);
-var seatac = new Store('SeaTac Airport', 3, 24, 1.2);
-var center = new Store('Seattle Center', 11, 38, 3.7);
-var caphill = new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Pike Place Market', 23, 65, 6.3);
+new Store('Alki', 2, 16, 4.6);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
 
 fishInput.addEventListener('submit', createUserEvent);
