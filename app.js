@@ -4,6 +4,11 @@ var hours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3
 
 var allStores = [];
 var theTable = document.getElementById('cookiestores');
+// var addStore = document.getElementById('newStore');
+// var addMin = document.getElementById('minCust');
+// var addMax = document.getElementById('maxCust');
+// var addAvg = document.getElementById('avgCookie');
+var fishInput = document.getElementById('fishInput');
 
 function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCustomer) {
   this.location = location;
@@ -14,8 +19,8 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCu
   this.customersEachHour = [];
   this.cookiesEachHour = [];
   this.calcCookiesPerHour();
-  this.render();
   allStores.push(this);
+  this.render();
 };
 
 Store.prototype.calcCustomersThisHour = function() {
@@ -73,40 +78,20 @@ for ( var i = 0; i < allStores.length; i++){
   allStores[i].render();
 }
 
+function createUserEvent(event) {
+  event.preventDefault();
+  var locationName = event.target.newStore.value;
+  var minCustNewStore = parseInt(event.target.minCust.value);
+  var maxCustNewStore = parseInt(event.target.maxCust.value);
+  var avgCookNewStore = parseInt(event.target.avgCookie.value);
+  new Store(locationName, minCustNewStore, maxCustNewStore, avgCookNewStore);
+  allStores.push();
+}
+
 var pike = new Store('Pike Place Market', 23, 65, 6.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 var seatac = new Store('SeaTac Airport', 3, 24, 1.2);
 var center = new Store('Seattle Center', 11, 38, 3.7);
 var caphill = new Store('Capitol Hill', 20, 38, 2.3);
 
-// function printAllStores() {
-//   for(var b = 0; b < allStores.length; b++) {
-//     console.log(allStores[b]);
-//     allStores[b].render();
-//   }
-// }
-// function myHeader() {
-//   var trEl = document.createElement('tr');
-//   var thEl = document.createElement('th');
-//   thEl.textContent = 'Location';
-//   trEl.appendChild(thEl);
-//   for(var c = 0; c < hours.length; c++) {
-//     var thEl = document.createElement('th');
-//     thEl.textContent = hours[c];
-//     trEl.appendChild(thEl);
-//   }
-//   // theTable.appendChild(trEl);
-//   var thEl = document.createElement('th');
-//   thEl.textContent = 'Daily Location Total';
-//   trEl.appendChild(thEl);
-// }
-
-// printAllStores();
-// myHeader();
-
-// create an element
-// give it content
-// append it
-// tdEl = document.createElement('td');
-// tdEl.textContent = this.totalsales;
-// trEl.appendChild(tdEl);
+fishInput.addEventListener('submit', createUserEvent);

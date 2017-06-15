@@ -7,7 +7,27 @@
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
   </head>
   <body>
-    <h1>Pat's Salmon Cookies</h1>
+    <h1>Pat's Salmon Cookies</h1
+    <form id="fishInput">
+      <fieldset>
+        <legend>Fish Cookies Input</legend>
+
+        <label for="newStore">New Store: </label>
+        <input name="newStore" type="text" />
+
+        <label for="minCust">Min Customers an Hour: </label>
+        <input name="minCust" type="text" />
+
+        <label for="maxCust">Max Customers an Hour:</label>
+        <input name="maxCust" type="text" />
+
+        <label for="avgCookie">Avg Cookies Per Customer: </label>
+        <input name="avgCookie" type="text" />
+
+        <button type="submit">Create New Store</button>
+      </fieldset>
+    </form>
+
     <img src="images/salmon.png" align="center"/>
     <table id="cookiestores"></table>
 
