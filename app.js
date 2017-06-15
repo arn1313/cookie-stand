@@ -4,11 +4,7 @@ var hours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3
 
 var allStores = [];
 var theTable = document.getElementById('cookiestores');
-// var addStore = document.getElementById('newStore');
-// var addMin = document.getElementById('minCust');
-// var addMax = document.getElementById('maxCust');
-// var addAvg = document.getElementById('avgCookie');
-var fishInput = document.getElementById('fishInput');
+// var fishInput = document.getElementById('fishInput');
 
 function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCustomer) {
   this.location = location;
@@ -19,8 +15,8 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCu
   this.customersEachHour = [];
   this.cookiesEachHour = [];
   this.calcCookiesPerHour();
+  // this.render();
   allStores.push(this);
-  this.render();
 };
 
 Store.prototype.calcCustomersThisHour = function() {
@@ -41,7 +37,7 @@ Store.prototype.calcCookiesPerHour = function() {
 };
 
 Store.prototype.render = function() {
-
+  // console.log('render');
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = this.location;
@@ -58,24 +54,65 @@ Store.prototype.render = function() {
   theTable.appendChild(trEl);
 };
 
-var thEl = document.createElement('th');
-var trEl = document.createElement('tr');
-thEl.textContent = 'Location';
-trEl.appendChild(thEl);
+new Store('Pike Place Market', 23, 65, 6.3);
+new Store('Alki', 2, 16, 4.6);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
 
-for ( var i = 0; i < hours.length; i++){
+function makeHeader() {
+  // console.log('render header');
+
   var thEl = document.createElement('th');
-  thEl.textContent = hours[i];
+  var trEl = document.createElement('tr');
+  thEl.textContent = 'Location';
   trEl.appendChild(thEl);
+
+  for ( var i = 0; i < hours.length; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+  }
+
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total Sales';
+  trEl.appendChild(thEl);
+  theTable.appendChild(trEl);
 }
 
-thEl = document.createElement('th');
-thEl.textContent = 'Total Sales';
-trEl.appendChild(thEl);
-theTable.appendChild(trEl);
+function renderTable() {
+  // console.log('render table');
+  for (var i = 0; i < allStores.length; i++) {
+    allStores[i].render();
+  }
+}
 
-for ( var i = 0; i < allStores.length; i++){
-  allStores[i].render();
+function makeFooter() {
+  // console.log('make footer');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Hourly Totals For All Locations';
+  trEl.appendChild(thEl);
+
+  var totallyTotals = 0;
+  var hourlyTotal = 0;
+
+  for (var i = 0; i < hours.length; i++) {
+    hourlyTotal = 0;
+    for (var j = 0; j < allStores.length; j++) {
+      hourlyTotal += allStores[j].cookiesEachHour[i];
+      totallyTotals += allStores[j].cookiesEachHour[i];
+    }
+    thEl = document.createElement('th');
+    thEl.textContent = hourlyTotal;
+    trEl.appendChild(thEl);
+  }
+
+  thEl = document.createElement('th');
+  thEl.textContent = totallyTotals;
+  trEl.appendChild(thEl);
+
+  theTable.appendChild(trEl);
 }
 
 function createUserEvent(event) {
@@ -86,12 +123,23 @@ function createUserEvent(event) {
   var avg = parseInt(event.target.avgCookie.value);
   new Store(loc, min, max, avg);
   allStores.push();
+  // console.log('first call');
+  theTable.innerHTML = '';
+
+  clearForm();
+  makeHeader();
+  renderTable();
+  makeFooter();
+}
+function clearForm(){
+  event.target.newStore.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCookie.value = null;
 }
 
-new Store('Pike Place Market', 23, 65, 6.3);
-new Store('Alki', 2, 16, 4.6);
-new Store('SeaTac Airport', 3, 24, 1.2);
-new Store('Seattle Center', 11, 38, 3.7);
-new Store('Capitol Hill', 20, 38, 2.3);
+makeHeader();
+renderTable();
+makeFooter();
 
 fishInput.addEventListener('submit', createUserEvent);
