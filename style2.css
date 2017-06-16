@@ -1,0 +1,58 @@
+
+html {
+  margin-left: 0;
+  padding: 0;
+}
+
+* {
+  background-color: #C0C0C0;
+  background-image: url(images/fish.jpg);
+  background: center;
+}
+h1 {
+  background-image: url(images/chinook.jpg);
+  background-position: center;
+  text-align: center;
+  image-orientation: auto;
+  color: salmon;
+  font-size: 75px;
+  background-color: beige;
+  border: 25px;
+  border-radius: 2px;
+  border-color: darkgrey;
+  border-style: solid;
+  border-width: thick medium 15px;
+}
+h2 {
+  text-align: center;
+  color: salmon;
+  font-size: 50px;
+  background-color: beige;
+  border: 25px;
+  border-radius: 2px;
+  border-color: darkgrey;
+  border-style: solid;
+  border-width: thick medium 15px;
+}
+body {
+  font-family: 'Acme', sans-serif;
+}
+p {
+  font-size: 25px;
+}
+div {
+  box-shadow: 10px 10px 5px darkgrey;
+  div.image {
+    content: url(image1/chinook.jpg);
+  }
+}
+
+a {
+  color: salmon;
+  border:  2px;
+}
+
+main {
+  width: 600px;
+  height: 300px;
+}
