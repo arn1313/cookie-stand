@@ -8,5 +8,8 @@ h1 {
   font-family: 'Acme', sans-serif;
 }
 body {
-  
+
+}
+p {
+  font-size: 75px;
 }
