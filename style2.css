@@ -9,6 +9,11 @@ html {
   background-image: url(images/fish.jpg);
   background: center;
 }
+a {
+  font-size: 20px;
+  text-align: center;
+}
+
 h1 {
   background-image: url(images/chinook.jpg);
   background-position: center;
@@ -22,27 +27,33 @@ h1 {
   border-color: darkgrey;
   border-style: solid;
   border-width: thick medium 15px;
+  margin: 125px;
 }
 h2 {
   text-align: center;
   color: salmon;
   font-size: 50px;
-  background-color: beige;
-  border: 25px;
+  background-color: darkgrey;
+  border: 15px;
   border-radius: 2px;
   border-color: darkgrey;
   border-style: solid;
   border-width: thick medium 15px;
+  margin: 75px;
 }
 body {
   font-family: 'Acme', sans-serif;
+  background-color: lightgrey;
+  background-image: url(images/seattle.jpg);
 }
 p {
   font-size: 25px;
+  background-color: darkgrey;
 }
 div {
   box-shadow: 10px 10px 5px darkgrey;
-  div.image {
+
+div.image {
     content: url(image1/chinook.jpg);
   }
 }
