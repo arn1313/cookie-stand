@@ -1,21 +1,37 @@
 
-html {
+body, html {
+  height: 100%;
   margin-left: 0;
   padding: 0;
 }
 
 * {
-  background-color: #C0C0C0;
-  background-image: url(images/fish.jpg);
-  background: center;
+  background-image: url(images/seattle.jpg);
+  position: fixed;
 }
-a {
+
+
+head {
+  float: right;
+  list-style-type: none;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: inline;
+  z-index: 10;
   font-size: 20px;
-  text-align: center;
+  color: salmon;
+}
+
+}
+
+h1 img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
-  background-image: url(images/chinook.jpg);
+  background-image: url(images/salmon.png);
   background-position: center;
   text-align: center;
   image-orientation: auto;
@@ -43,8 +59,12 @@ h2 {
 }
 body {
   font-family: 'Acme', sans-serif;
-  background-color: lightgrey;
-  background-image: url(images/seattle.jpg);
+    background-image: url(images/seattle.jpg);
+    background-attachment: fixed
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
 }
 p {
   font-size: 25px;
@@ -53,14 +73,6 @@ p {
 div {
   box-shadow: 10px 10px 5px darkgrey;
 
-div.image {
-    content: url(image1/chinook.jpg);
-  }
-}
-
-a {
-  color: salmon;
-  border:  2px;
 }
 
 main {
