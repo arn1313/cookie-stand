@@ -1,0 +1,83 @@
+a {
+  color: salmon;
+}
+
+body, html {
+  height: 100%;
+}
+
+h1 {
+  color: salmon;
+  font-size: 60px;
+  text-align: center;
+  /*background-color: beige;*/
+  font-family: 'Acme', sans-serif
+}
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Acme', sans-serif
+
+}
+p {
+  text-align: center;
+}
+#fam {
+  background-image: url(images/family.jpg) ;
+  width: 440px
+  margin-top: 90px
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+}
+#fam img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#family {
+  text-decoration-style: none;
+  text-align: center;
+  background-color: inherit;
+  width: auto;
+}
+body {
+  background-attachment: fixed
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+p {
+  font-size: 25px;
+  text-align: center;
+}
+#products {
+  width: 540px
+  margin-top: 90px
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+}
+#products a {
+  vertical-align: top;
+  display: inline-block;
+}
+.halp {
+  width: 100%;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+}
+#locations {
+  text-shadow: 10px;
+  text-align: center;
+  background-opacity: .2;
+}
